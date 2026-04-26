@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Flaky Croissant | Artisan Pastries & Coffee | Okemos, MI</title>
+    <meta name="description" content="The Flaky Croissant - Authentic French pastries, buttery croissants, and specialty coffee in Okemos, Michigan.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4A574;
+            --gold-light: #E8C9A0;
+            --gold-dark: #B08D55;
+            --cream: #FDF8F0;
+            --warm-white: #FFFBF5;
+            --charcoal: #2C241B;
+            --brown: #5C4A3A;
+            --light-brown: #8B7355;
+            --accent: #C75B39;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-dark);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--brown);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 5% 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--gold-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: var(--gold-dark);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-brown);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            color: var(--brown);
+            font-size: 0.95rem;
+        }
+
+        .hero-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-info-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            border-color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--brown);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid var(--gold-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--cream);
+            border-color: var(--gold);
+            color: var(--gold-dark);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 20px 60px rgba(44, 36, 27, 0.15);
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        .floating-card.rating {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card.hours {
+            bottom: 15%;
+            left: -10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stars {
+            color: #FFB800;
+            font-size: 1.2rem;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            color: var(--gold-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--light-brown);
+            font-size: 1.1rem;
+        }
+
+        .rating-big {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .rating-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--charcoal);
+            font-weight: 700;
+        }
+
+        .rating-details {
+            text-align: left;
+        }
+
+        .rating-count {
+            color: var(--light-brown);
+            font-size: 0.9rem;
+        }
+
+        .reviews-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--warm-white);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border-color: rgba(212, 165, 116, 0.3);
+        }
+
+        .review-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--gold-light);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .reviewer-badge {
+            font-size: 0.75rem;
+            color: var(--light-brown);
+        }
+
+        .review-card p {
+            color: var(--brown);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--light-brown);
+        }
+
+        .owner-response {
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--brown);
+            border-left: 3px solid var(--gold);
+        }
+
+        .owner-response strong {
+            color: var(--gold-dark);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 6rem 5%;
+            background: linear-gradient(to bottom, var(--cream), var(--warm-white));
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--gold-light);
+            background: transparent;
+            color: var(--brown);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .menu-tab.active, .menu-tab:hover {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-category {
+            display: none;
+        }
+
+        .menu-category.active {
+            display: contents;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .menu-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transform: translateX(5px);
+            border-color: rgba(212, 116, 165, 0.2);
+        }
+
+        .menu-item-info h4 {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-item-info p {
+            font-size: 0.85rem;
+            color: var(--light-brown);
+        }
+
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--gold-dark);
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .sizes {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .size-tag {
+            font-size: 0.75rem;
+            background: var(--cream);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            color: var(--light-brown);
+        }
+
+        .add-ons {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .add-ons h3 {
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .add-ons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .add-on-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--warm-white);
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 5%;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, var(--cream), transparent);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .about-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-img:first-child {
+            grid-row: span 2;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .about-content p {
+            color: var(--brown);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 165, 116, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-dark);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+        }
+
+        .feature-text p {
+            font-size: 0.85rem;
+            color: var(--light-brown);
+            margin: 0;
+        }
+
+        /* Visit Section */
+        .visit-section {
+            padding: 6rem 5%;
+            background: var(--charcoal);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .visit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .visit-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-light);
+        }
+
+        .visit-content > p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .info-card h4 {
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-card p, .info-card a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .info-card a:hover {
+            color: var(--gold);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .hours-grid .day {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .hours-grid .time {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .map-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            gap: 1rem;
+        }
+
+        .map-placeholder svg {
+            width: 64px;
+            height: 64px;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem 5%;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container, .about-container, .visit-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-image-container {
+                max-width: 350px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .about-images {
+                order: -1;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--gold-light);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🥐</span>
+                The Flaky Croissant
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#visit">Visit Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span>★</span> 4.6 Rating · 31 Reviews
+                </div>
+                <h1>Artisan <span>French Pastries</span> & Specialty Coffee</h1>
+                <p class="hero-subtitle">Authentic buttery croissants, delicate danishes, and perfectly crafted espresso in the heart of Okemos.</p>
+                
+                <div class="hero-info">
+                    <div class="hero-info-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>4480 Hagadorn Rd Suite 108, Okemos, MI 48864</span>
+                    </div>
+                    <div class="hero-info-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <span>(517) 246-0505</span>
+                    </div>
+                    <div class="hero-info-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span>Open Mon-Sun · 7:30 AM – 6:00 PM</span>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#menu" class="btn-primary">
+                        View Our Menu
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <a href="tel:5172460505" class="btn-secondary">
+                        Call to Order
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=80" alt="Golden flaky croissants" class="hero-image">
+                    
+                    <div class="floating-card rating">
+                        <div>
+                            <div class="stars">★★★★★</div>
+                            <div style="font-size: 0.8rem; color: var(--light-brown);">4.6/5 Rating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card hours">
+                        <div style="font-size: 0.9rem;">
+                            <strong style="color: var(--charcoal); display: block;">Open Today</strong>
+                            <span style="color: var(--light-brown);">7:30 AM – 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-header">
+            <span class="section-label">Testimonials</span>
+            <h2>What Our Guests Are Saying</h2>
+            <p>Real reviews from real customers who've experienced our cozy vibes and delicious treats.</p>
+            
+            <div class="rating-big">
+                <span class="rating-number">4.6</span>
+                <div class="rating-details">
+                    <div class="stars" style="font-size: 1.5rem;">★★★★★</div>
+                    <div class="rating-count">Based on 31 Google Reviews</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">JC</div>
+                        <div>
+                            <div class="reviewer-name">Jasmine Cardenas</div>
+                            <div class="reviewer-badge">Local Guide · 27 reviews</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>I love this place so much. The croissants are so good and beautifully made. This is a MUST TRY.</p>
+                <div class="owner-response">
+                    <strong>Owner Response</strong>
+                    Much appreciate you Jasmine for the kindest review.
+                </div>
+                <div class="review-footer">
+                    <span>⭐ Verified Visit</span>
+                    <span>1 week ago</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">AT</div>
+                        <div>
+                            <div class="reviewer-name">Adam Thompson</div>
+                            <div class="reviewer-badge">Local Guide · 29 reviews</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>Nice little shop. Packed, but they were moving people through steadily. Great atmosphere and even better pastries!</p>
+                <div class="owner-response">
+                    <strong>Owner Response</strong>
+                    Thank you Adam for stopping by & for the kind review.
+                </div>
+                <div class="review-footer">
+                    <span>⭐ Verified Visit</span>
+                    <span>1 week ago</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">NC</div>
+                        <div>
+                            <div class="reviewer-name">Nathan Carter</div>
+                            <div class="reviewer-badge">Local Guide · 20 reviews</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>The croissants are pretty decent and the shop has a great vibe. I appreciate that they use quality espresso beans and are committed to improving their craft.</p>
+                <div class="owner-response">
+                    <strong>Owner Response</strong>
+                    We regret your experience was not fully positive. We do use quality espresso beans, and we will continue to strive to make our cappuccinos better.
+                </div>
+                <div class="review-footer">
+                    <span>⭐ Verified Visit</span>
+                    <span>1 week ago</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">G</div>
+                        <div>
+                            <div class="reviewer-name">Guest Reviewer</div>
+                            <div class="reviewer-badge">Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>"The Flaky Croissant is a wonderful place with cozy vibes and tasty treats!" Bright atmosphere to complement their amazing French pastries.</p>
+                <div class="review-footer">
+                    <span>⭐ Featured Review</span>
+                    <span>Recent</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">G</div>
+                        <div>
+                            <div class="reviewer-name">Guest Reviewer</div>
+                            <div class="reviewer-badge">Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>"The food is delicious, the coffee is delicious, and the staff is so friendly!" A perfect spot for morning coffee and fresh pastries.</p>
+                <div class="review-footer">
+                    <span>⭐ Featured Review</span>
+                    <span>Recent</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">G</div>
+                        <div>
+                            <div class="reviewer-name">Guest Reviewer</div>
+                            <div class="reviewer-badge">Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>"Bright and atmosphere to complement their amazing French pastries." Every visit feels like a little escape to a Parisian café.</p>
+                <div class="review-footer">
+                    <span>⭐ Featured Review</span>
+                    <span>Recent</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="menu-container">
+            <div class="section-header">
+                <span class="section-label">Our Offerings</span>
+                <h2>Fresh From the Oven</h2>
+                <p>Handcrafted daily using traditional French techniques and the finest ingredients.</p>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="menu-tab active" onclick="showCategory('hot')">Hot Drinks</button>
+                <button class="menu-tab" onclick="showCategory('espresso')">Espresso</button>
+                <button class="menu-tab" onclick="showCategory('iced')">Iced Drinks</button>
+                <button class="menu-tab" onclick="showCategory('pastries')">Pastries</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Hot Drinks -->
+                <div class="menu-category active" id="hot">
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Brewed Coffee</h4>
+                            <p>Freshly brewed daily</p>
+                            <div class="sizes"><span class="size-tag">S $2.65</span><span class="size-tag">M $2.95</span><span class="size-tag">L $3.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Café Au Lait</h4>
+                            <p>Half coffee, half steamed milk</p>
+                            <div class="sizes"><span class="size-tag">S $3.50</span><span class="size-tag">M $4.00</span><span class="size-tag">L $4.50</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Chai Tea Latte</h4>
+                            <p>Spiced black tea with steamed milk</p>
+                            <div class="sizes"><span class="size-tag">S $4.65</span><span class="size-tag">M $5.25</span><span class="size-tag">L $5.65</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Matcha Tea Latte</h4>
+                            <p>Ceremonial grade matcha</p>
+                            <div class="sizes"><span class="size-tag">S $4.65</span><span class="size-tag">M $5.25</span><span class="size-tag">L $5.65</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Hot Chocolate</h4>
+                            <p>Rich and creamy</p>
+                            <div class="sizes"><span class="size-tag">S $3.50</span><span class="size-tag">M $4.00</span><span class="size-tag">L $4.50</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Hot Tea</h4>
+                            <p>Selection of premium loose leaf teas</p>
+                            <div class="sizes"><span class="size-tag">S $3.25</span><span class="size-tag">M $3.75</span><span class="size-tag">L $3.95</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Espresso -->
+                <div class="menu-category" id="espresso">
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Americano</h4>
+                            <p>Espresso with hot water</p>
+                            <div class="sizes"><span class="size-tag">S $3.95</span><span class="size-tag">M $4.25</span><span class="size-tag">L $4.75</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Café Au Lait</h4>
+                            <p>Espresso with steamed milk</p>
+                            <div class="sizes"><span class="size-tag">S $3.50</span><span class="size-tag">M $4.00</span><span class="size-tag">L $4.50</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Café Breve</h4>
+                            <p>Espresso with half & half</p>
+                            <div class="sizes"><span class="size-tag">S $4.25</span><span class="size-tag">M $4.75</span><span class="size-tag">L $5.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Latte</h4>
+                            <p>Espresso with velvety steamed milk</p>
+                            <div class="sizes"><span class="size-tag">S $4.25</span><span class="size-tag">M $4.75</span><span class="size-tag">L $5.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Cappuccino</h4>
+                            <p>Equal parts espresso, milk, and foam</p>
+                            <div class="sizes"><span class="size-tag">S $4.25</span><span class="size-tag">M $4.75</span><span class="size-tag">L $5.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Mocha</h4>
+                            <p>Espresso with chocolate and steamed milk</p>
+                            <div class="sizes"><span class="size-tag">S $4.75</span><span class="size-tag">M $5.25</span><span class="size-tag">L $5.75</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Espresso</h4>
+                            <p>Pure, bold, and rich</p>
+                            <div class="sizes"><span class="size-tag">Sgl $2.65</span><span class="size-tag">Dbl $2.95</span><span class="size-tag">Trpl $3.45</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Macchiato</h4>
+                            <p>Espresso marked with foam</p>
+                            <div class="sizes"><span class="size-tag">Sgl $2.95</span><span class="size-tag">Dbl $3.25</span><span class="size-tag">Trpl $3.75</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Cortado</h4>
+                            <p>Equal parts espresso and warm milk</p>
+                            <div class="sizes"><span class="size-tag">Sgl $4.25</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Iced Drinks -->
+                <div class="menu-category" id="iced">
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Coffee</h4>
+                            <p>Cold brewed perfection</p>
+                            <div class="sizes"><span class="size-tag">M $3.95</span><span class="size-tag">L $4.75</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Americano</h4>
+                            <p>Espresso over ice</p>
+                            <div class="sizes"><span class="size-tag">M $4.45</span><span class="size-tag">L $4.95</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Latte</h4>
+                            <p>Espresso with cold milk over ice</p>
+                            <div class="sizes"><span class="size-tag">M $5.25</span><span class="size-tag">L $5.75</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Mocha</h4>
+                            <p>Chocolatey espresso over ice</p>
+                            <div class="sizes"><span class="size-tag">M $5.75</span><span class="size-tag">L $6.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Chai Latte</h4>
+                            <p>Spiced chai over ice</p>
+                            <div class="sizes"><span class="size-tag">M $5.65</span><span class="size-tag">L $5.95</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Iced Matcha Latte</h4>
+                            <p>Matcha with cold milk over ice</p>
+                            <div class="sizes"><span class="size-tag">M $5.65</span><span class="size-tag">L $5.95</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Espresso Chiller</h4>
+                            <p>Blended espresso beverage</p>
+                            <div class="sizes"><span class="size-tag">M $5.75</span><span class="size-tag">L $6.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Fruit Chiller</h4>
+                            <p>Refreshing fruit blend</p>
+                            <div class="sizes"><span class="size-tag">M $5.75</span><span class="size-tag">L $6.25</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Matcha Chiller</h4>
+                            <p>Blended matcha beverage</p>
+                            <div class="sizes"><span class="size-tag">M $5.95</span><span class="size-tag">L $6.45</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Chai Chiller</h4>
+                            <p>Blended chai beverage</p>
+                            <div class="sizes"><span class="size-tag">M $5.95</span><span class="size-tag">L $6.45</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastries -->
+                <div class="menu-category" id="pastries">
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Butter Croissant</h4>
+                            <p>Classic French butter croissant, flaky and golden</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Choco Croissant</h4>
+                            <p>Buttery croissant with rich chocolate filling</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Almond Danish</h4>
+                            <p>Traditional danish with almond cream filling</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Custard Danish</h4>
+                            <p>Flaky pastry with smooth vanilla custard</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Fruit Danish</h4>
+                            <p>Seasonal fruit topped danish pastry</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Mont Blanc</h4>
+                            <p>Elegant chestnut cream pastry</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Jamando</h4>
+                            <p>House specialty with fruit preserves</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Raisin Roll</h4>
+                            <p>Swirled pastry with cinnamon and raisins</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Choco Filled Pastry</h4>
+                            <p>Decadent chocolate-filled delight</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                    <div class="menu-item fade-in">
+                        <div class="menu-item-info">
+                            <h4>Ham & Cheese Pastry</h4>
+                            <p>Savory ham and melted cheese in flaky dough</p>
+                        </div>
+                        <span class="menu-item-price">Daily</span>
+                    </div>
+                </div>
+
+                <div class="add-ons fade-in">
+                    <h3>Substitutions & Add Ons</h3>
+                    <div class="add-ons-grid">
+                        <div class="add-on-item">
+                            <span>Soy, Almond, Oat, or Coconut Milk</span>
+                            <strong style="color: var(--gold-dark);">+$0.50</strong>
+                        </div>
+                        <div class="add-on-item">
+                            <span>Flavor Syrup</span>
+                            <strong style="color: var(--gold-dark);">+$0.50</strong>
+                        </div>
+                        <div class="add-on-item">
+                            <span>Extra Espresso Shot</span>
+                            <strong style="color: var(--gold-dark);">+$1.25</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <span class="section-label">Our Story</span>
+                <h2>Baked with Passion, Served with Love</h2>
+                <p>The Flaky Croissant brings a slice of Paris to Okemos. Every morning, our bakers arrive before dawn to hand-craft each pastry using traditional French techniques and the finest European-style butter.</p>
+                <p>From our signature butter croissants to our delicate Mont Blanc, every item is made fresh daily. Pair your pastry with a perfectly pulled espresso or a creamy latte for the ultimate experience.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🧈</div>
+                        <div class="feature-text">
+                            <h4>European Butter</h4>
+                            <p>Rich, cultured butter for authentic flakiness</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">☕</div>
+                        <div class="feature-text">
+                            <h4>Quality Espresso</h4>
+                            <p>Premium beans, expertly extracted</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌾</div>
+                        <div class="feature-text">
+                            <h4>Fresh Daily</h4>
+                            <p>Baked every morning, never frozen</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💛</div>
+                        <div class="feature-text">
+                            <h4>Cozy Vibes</h4>
+                            <p>Welcoming atmosphere for everyone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-images">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=600&q=80" alt="Fresh croissants being prepared">
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Coffee being poured">
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Pastry display">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section class="visit-section" id="visit">
+        <div class="visit-container">
+            <div class="visit-content">
+                <span class="section-label" style="color: var(--gold);">Visit Us</span>
+                <h2>Come Say Hello</h2>
+                <p>We're located in the heart of Okemos, ready to serve you the perfect pastry and coffee experience.</p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <a href="https://maps.google.com/?q=4480+Hagadorn+Rd+Suite+108+Okemos+MI+48864" target="_blank">
+                                4480 Hagadorn Rd Suite 108<br>Okemos, MI 48864
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:5172460505">(517) 246-0505</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🕐</div>
+                        <div>
+                            <h4>Hours</h4>
+                            <div class="hours-grid">
+                                <span class="day">Mon – Sun</span>
+                                <span class="time">7:30 AM – 6:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">💵</div>
+                        <div>
+                            <h4>Pricing</h4>
+                            <p>$10 – $20 per person</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Find Us on Google Maps</p>
+                        <a href="https://maps.google.com/?q=4480+Hagadorn+Rd+Suite+108+Okemos+MI+48864" target="_blank" style="color: var(--gold); text-decoration: none; font-weight: 600;">
+                            Get Directions →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">The Flaky Croissant</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#visit">Contact</a>
+            </div>
+            <p>© 2026 The Flaky Croissant. All rights reserved.<br>Handcrafted with care in Okemos, Michigan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Menu tabs
+        function showCategory(category) {
+            // Remove active from all tabs and categories
+            document.querySelectorAll('.menu-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.menu-category').forEach(cat => cat.classList.remove('active'));
+            
+            // Add active to clicked tab and corresponding category
+            event.target.classList.add('active');
+            document.getElementById(category).classList.add('active');
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
